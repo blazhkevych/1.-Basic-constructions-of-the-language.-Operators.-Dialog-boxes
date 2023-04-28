@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>User Information</title>
+	<style>
+		.style1 {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+
+<body>
+	<button class="style1" onclick="collectInfo()">Collect Information</button>
+	<script class="style1">
+		function collectInfo() {
+			var fullName = prompt("Please enter your full name:");
+			var sex = prompt("Please enter your sex:");
+			var age = prompt("Please enter your age:");
+			var email = prompt("Please enter your email:");
+
+			var message = "Full Name: " + fullName + "\n" +
+				"Sex: " + sex + "\n" +
+				"Age: " + age + "\n" +
+				"Email: " + email;
+
+			var confirmed = confirm(message + "\n\nIs everything right?");
+
+			if (confirmed) {
+				alert("Thank you for providing the information!");
+			} else {
+				collectInfo();
+			}
+		}
+	</script>
+</body>
+
+</html>

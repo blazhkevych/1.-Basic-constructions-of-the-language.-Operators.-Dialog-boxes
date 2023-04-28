@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Tram Ticket Checker</title>
+	<style>
+		.style1 {
+			margin: auto;
+			margin-top: 500px;
+			width: 400px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body class="style1">
+	<label for="ticket-number">Enter your tram ticket number:</label>
+	<input type="text" id="ticket-number">
+	<button style="margin: 10px;" onclick="checkTicket()">Check Ticket</button>
+	<p id="result"></p>
+	<script>
+		function checkTicket() {
+			var ticketNumber = document.getElementById("ticket-number").value;
+
+			// Check if the ticket number is a 6-digit number
+			if (ticketNumber.length !== 6 || isNaN(ticketNumber)) {
+				document.getElementById("result").innerHTML = "Invalid ticket number. Please enter a 6-digit number.";
+				return;
+			}
+
+			var sum1 = parseInt(ticketNumber.charAt(0)) + parseInt(ticketNumber.charAt(1)) + parseInt(ticketNumber.charAt(2));
+			var sum2 = parseInt(ticketNumber.charAt(3)) + parseInt(ticketNumber.charAt(4)) + parseInt(ticketNumber.charAt(5));
+
+			if (sum1 === sum2) {
+				document.getElementById("result").innerHTML = "This is a lucky ticket.";
+			} else {
+				document.getElementById("result").innerHTML = "This is not a lucky ticket.";
+			}
+		}
+	</script>
+</body>
+
+</html>

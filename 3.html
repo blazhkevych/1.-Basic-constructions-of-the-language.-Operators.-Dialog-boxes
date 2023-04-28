@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Guess the Number</title>
+	<style>
+		.style1 {
+			margin: auto;
+			margin-top: 500px;
+			width: 400px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body class="style1">
+	<p>Think of a number between 0 and 100 and I will guess it!</p>
+	<button onclick="startGame()">Start Game</button>
+	<p id="result"></p>
+	<script>
+		function startGame() {
+			var min = 0;
+			var max = 100;
+			var guess = null;
+
+			while (guess !== "correct") {
+				guess = prompt("Is your number greater than, less than, or equal to " + Math.floor((min + max) / 2) + "?\nEnter 'greater', 'less', or 'equal'.");
+
+				if (guess === "greater") {
+					min = Math.floor((min + max) / 2) + 1;
+				} else if (guess === "less") {
+					max = Math.floor((min + max) / 2) - 1;
+				} else if (guess === "equal") {
+					document.getElementById("result").innerHTML = "I guessed your number!";
+					break;
+				} else {
+					alert("Invalid input. Please enter 'greater', 'less', or 'equal'.");
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>
